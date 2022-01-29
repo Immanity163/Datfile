@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/user_reg.css'%}">
+    <title>Log in|DatFile</title>
+</head>
+<body>
+  <header>
+    <div class = "menu">
+        <div class ="logobox">
+        <div class="menu-logo-object">
+            <img src="{% static 'img/logo.png'%}" alt="логотип сайта" class = "img">
+        </div>
+        <div class="logotext">DatFile</div>
+        </div>
+        
+            <a class="s" href="/list/"><div class="menu-object">На&nbsp;главную</div></a>
+            {% if user.is_authenticated %}
+            <a class="s" href="{% url 'logout'%}?next={{request.path}}"><div class="menu-object">Log out</div></a>
+            {%else%}
+            <a class="s" href="{% url 'login'%}?next={{request.path}}"><div class="menu-object">Log In</div></a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div class="menu-object">User: {{ user.get_username }}</div>
+            {% endif %}
+
+        
+    </div>
+</header>
+<div class ="section">
+
+    {% block content %}
+<div class = "form">
+{% if form.errors %}
+  <p>Похоже не тот логин или пароль</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p></p>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+  Введите никнейм
+  {{ form.username }}
+
+Введите пароль
+{{ form.password }}
+
+<input type="submit" value="Зарегестрироваться" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p><a href="{% url 'tapes:register' %}" >Зарегестрироваться</a></p>
+
+{% endblock %}
+</div>
+</div>
+</body>
+</html>
