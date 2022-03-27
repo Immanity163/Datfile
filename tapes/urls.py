@@ -7,6 +7,6 @@ app_name = "tapes"
 urlpatterns = [
     path('list/',MainListView.as_view(),name =  "main"),
     path('list/<int:pk>',ListPageView.as_view(),name = "detail"),
-    path('list/create_post/',PostFormCreate.as_view()),
+    path('list/create_post/',PostFormCreate.as_view(),name = "create"),
     path('accounts/register/',RegisterView.as_view(),name = "register")
 ]

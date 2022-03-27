@@ -4,7 +4,6 @@
     margin: 0;
     font-family: Arial;
     font-weight: bold;
-    text-decoration: none;
 }
 body{
     background-color: white;
@@ -38,6 +37,7 @@ body{
     height: 75px;
     justify-content: center;
     background-color: teal;
+    margin-bottom: 20px;
 }
 .menu-object{
     margin: 0 ;
@@ -45,8 +45,7 @@ body{
     text-align: center;
     padding-top: 30px;
     max-height: 65px;
-    min-width:50px;
-    max-width:100px;
+    width:100px;
     
 }
 .s{
@@ -55,15 +54,26 @@ body{
     color: black;
     text-decoration: none;
 }
-
 .section {
-    width:90%;
-    padding: 10px;
+
+    width:80%;
     margin:auto;
     text-align: center;
     min-height: 840px;
-    
+    background-color:darkseagreen;
+    border-radius: 10px;
 }
+
+.section_news {
+
+    width:80%;
+    margin:auto;
+    text-align: center;
+    min-height: 840px;
+    border-radius: 10px;
+}
+
+/* ^detail and list view, header    */
 
 .news-post{
     min-height: 400px;
@@ -103,3 +113,71 @@ body{
     width: 200px;
     text-align: left;
 }
+
+/* ^ list view css */
+
+.form{
+    padding-top: 100px;
+    margin: auto;
+    width:60%;
+    height: 400px;
+    text-align: left;
+    font-size: 24px;
+}
+/* ^ login/register form view*/
+
+.main-img{
+    width:80%;
+    height: 500px;
+    margin: 15px auto 0;
+}
+
+.main-text{
+    margin: auto;
+    width: 80%;
+    text-align: left;
+
+}
+.comments{
+    margin-top: 50px;
+    padding-top: 20px;
+    text-align: left;
+    border-top: black solid 1px;
+}
+
+.comment-block{
+    margin-left:20px;
+    width: 90%;
+}
+
+.form-comment-nick{
+    width: 300px;
+    height:15px;
+}
+
+.form-comment-text{
+    width: 500px;
+    height:60px;
+}
+
+.form-comment-button{
+    width:300px
+}
+
+.nickname{
+    font-size:30;
+    color:cornflowerblue;
+}
+
+.text{
+    font-size:12;
+
+}
+
+.date{
+    font-size:10;
+}
+
+/*  detail view */
+
+

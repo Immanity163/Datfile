@@ -63,14 +63,14 @@ class PostFormCreate(View):
     
     def get(self,request):
         user_form = Form_post()
-        return render(request, 'reg.html',context={'form':user_form})
+        return render(request, 'create_post.html',context={'form':user_form})
 
     def post(self,request):
         user_form = Form_post(request.POST)
         if user_form.is_valid():
             post.objects.create(**user_form.cleaned_data)
             return HttpResponseRedirect('/list/create_post/')
-        return render(request, 'reg.html',context={'form':user_form})
+        return render(request, 'create_post.html',context={'form':user_form})
 
 
 class RegisterView(FormView):
